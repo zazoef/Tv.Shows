@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using TvShows.Interfaces.Services;
-using TvShows.Models;
+using TvShows.ViewModels;
 
 namespace TvShows.Controllers
 {
@@ -15,7 +15,7 @@ namespace TvShows.Controllers
             _showService = showService;
         }
         [HttpGet("{id}", Name = "Get")]
-        public List<Show> Get(int id)
+        public List<ShowViewModel> Get(int id)
         {
             return _showService.GetByPage(id);
         }

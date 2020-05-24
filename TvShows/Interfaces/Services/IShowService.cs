@@ -6,6 +6,6 @@ namespace TvShows.Interfaces.Services
 {
     public interface IShowService
     {
-        List<Show> GetByPage(int page, int pageSize = 10);
+        List<TvShows.ViewModels.ShowViewModel> GetByPage(int page, int pageSize = 10);
     }
 }
