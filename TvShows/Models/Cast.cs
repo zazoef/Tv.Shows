@@ -7,10 +7,10 @@ namespace TvShows.Models
 {
     public class Cast
     {
-        public Person person { get; set; }
-        public Character character { get; set; }
-        public bool self { get; set; }
-        public bool voice { get; set; }
+        public Person Person { get; set; }
+        public Character Character { get; set; }
+        public bool Self { get; set; }
+        public bool Voice { get; set; }
     }
 
 }

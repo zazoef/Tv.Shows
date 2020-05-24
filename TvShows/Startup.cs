@@ -11,6 +11,8 @@ using TvShows.Interfaces.Services;
 using TvShows.Models;
 using TvShows.Services;
 using TvShows.Repository;
+using AutoMapper;
+using TvShows.ViewModels;
 
 namespace TvShows
 {
@@ -38,6 +40,7 @@ namespace TvShows
                 BaseAddress = new Uri("http://api.tvmaze.com/") 
             };
             services.AddSingleton<HttpClient>(httpClient);
+            services.AddAutoMapper(typeof(Startup));
             services.AddScoped<IScraperService, ScraperService>();
             services.AddScoped<IShowService, ShowService>();
             services.AddScoped<IFileRepository<Show>, FileRepository<Show>>();
@@ -64,6 +67,13 @@ namespace TvShows
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "TvShows");
             });
+
+            var config = new MapperConfiguration(cfg => {               
+                cfg.CreateMap<Show, ShowViewModel>();
+                cfg.CreateMap<Person, PersonViewModel>();
+            });
+
+            var mapper = config.CreateMapper();
         }
     }
 }
