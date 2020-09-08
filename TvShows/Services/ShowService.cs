@@ -29,5 +29,15 @@ namespace TvShows.Services
             var list =  shows.Take(pageSize).Skip((page - 1) * pageSize).ToList();
             return _mapper.Map<List<ShowViewModel>>(list);
         }
+        public List<ShowViewModel> GetByPageAsWell(int page, int pageSize = 10)
+        {
+            var shows = _fileRepository.Read();
+            if (shows == null)
+            {
+                return null;
+            }
+            var list = shows.Take(pageSize).Skip((page - 1) * pageSize).ToList();
+            return _mapper.Map<List<ShowViewModel>>(list);
+        }
     }
 }
