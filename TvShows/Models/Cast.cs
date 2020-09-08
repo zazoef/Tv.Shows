@@ -5,6 +5,9 @@ using System.Threading.Tasks;
 
 namespace TvShows.Models
 {
+    /// <summary>
+    /// ......
+    /// </summary>
     public class Cast
     {
         public Person Person { get; set; }
